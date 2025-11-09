@@ -260,31 +260,3 @@ make shell-postgres
 # Dar permisos a directorios
 chmod -R 755 data/ backups/
 ```
-
-## 🤝 Contribuir
-
-1. Fork el proyecto
-2. Crear una rama (`git checkout -b feature/amazing-feature`)
-3. Commit cambios (`git commit -m 'Add amazing feature'`)
-4. Push a la rama (`git push origin feature/amazing-feature`)
-5. Abrir un Pull Request
-
-## 📝 Licencia
-
-Este proyecto está bajo la licencia MIT.
-
-## 👨‍💻 Autor
-
-**[Tu Nombre]**
-- GitHub: [@KevinBeitaM](https://github.com/KevinBeitaM)
-- LinkedIn: [Tu LinkedIn]
-
-## 🙏 Agradecimientos
-
-- PostgreSQL Community
-- Docker Team
-- Prometheus & Grafana Teams
-
----
-
-⭐ Si este proyecto te fue útil, considera darle una estrella!
