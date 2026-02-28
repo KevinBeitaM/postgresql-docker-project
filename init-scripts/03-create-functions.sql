@@ -56,6 +56,9 @@ CREATE TRIGGER audit_orders
     AFTER INSERT OR UPDATE OR DELETE ON app.orders
     FOR EACH ROW EXECUTE FUNCTION audit.log_changes();
 
+-- Secuencia para números de orden
+CREATE SEQUENCE IF NOT EXISTS app.order_number_seq START 1;
+
 -- Función para generar número de orden
 CREATE OR REPLACE FUNCTION app.generate_order_number()
 RETURNS VARCHAR AS $$
@@ -67,9 +70,6 @@ BEGIN
     RETURN new_number;
 END;
 $$ LANGUAGE plpgsql;
-
--- Secuencia para números de orden
-CREATE SEQUENCE IF NOT EXISTS app.order_number_seq START 1;
 
 -- Vista para analytics
 CREATE OR REPLACE VIEW analytics.sales_summary AS
