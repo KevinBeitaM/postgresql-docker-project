@@ -17,6 +17,7 @@ services:
       - ./init-scripts:/docker-entrypoint-initdb.d
       - ./backups:/backups
       - ./docker/postgres/postgresql.conf:/etc/postgresql/postgresql.conf
+      - ./scripts:/scripts
     ports:
       - "${POSTGRES_PORT:-5432}:5432"
     networks:
@@ -85,6 +86,7 @@ services:
       GF_INSTALL_PLUGINS: grafana-clock-panel
     volumes:
       - grafana_data:/var/lib/grafana
+      - ./monitoring/grafana/datasources:/etc/grafana/provisioning/datasources
     ports:
       - "3000:3000"
     networks:

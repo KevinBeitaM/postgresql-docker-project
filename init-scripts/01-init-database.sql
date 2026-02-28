@@ -28,4 +28,4 @@ GRANT SELECT ON ALL TABLES IN SCHEMA app TO readonly_user;
 GRANT ALL PRIVILEGES ON SCHEMA app TO app_user;
 
 -- Configurar búsqueda de schemas
-ALTER DATABASE main_database SET search_path TO app, public;
+ALTER DATABASE current_database() SET search_path TO app, public;

@@ -41,13 +41,12 @@ BEGIN
     
     -- Crear órdenes
     INSERT INTO app.orders (id, user_id, order_number, status, total_amount)
-    VALUES 
-        (uuid_generate_v4(), user1_id, app.generate_order_number(), 'completed', 1649.98),
-        (uuid_generate_v4(), user2_id, app.generate_order_number(), 'processing', 999.99)
+    VALUES (uuid_generate_v4(), user1_id, app.generate_order_number(), 'completed', 1649.98)
     RETURNING id INTO order1_id;
-    
-    SELECT id INTO order1_id FROM app.orders WHERE user_id = user1_id ORDER BY created_at DESC LIMIT 1;
-    SELECT id INTO order2_id FROM app.orders WHERE user_id = user2_id ORDER BY created_at DESC LIMIT 1;
+
+    INSERT INTO app.orders (id, user_id, order_number, status, total_amount)
+    VALUES (uuid_generate_v4(), user2_id, app.generate_order_number(), 'processing', 999.99)
+    RETURNING id INTO order2_id;
     
     -- Insertar items de orden
     INSERT INTO app.order_items (order_id, product_id, quantity, unit_price)
